@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanode + Coolify = Awesome!</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffecd2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    .emoji {
+      font-size: 4rem;
+      margin: 1rem 0;
+    }
+
+    .party-popper {
+      position: absolute;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Self-hosted Nanode</h1>
+    <p>is now working with</p>
+    <h1 style="color: #007bff;">Coolify!</h1>
+    <div class="emoji">??????</div>
+    <p>Let the awesomeness begin!</p>
+  </div>
+
+  <script>
+    // Create party poppers
+    for (let i = 0; i < 20; i++) {
+      const popper = document.createElement('div');
+      popper.className = 'party-popper';
+      popper.innerText = '??';
+      popper.style.left = Math.random() * 100 + 'vw';
+      popper.style.top = Math.random() * 100 + 'vh';
+      document.body.appendChild(popper);
+
+      // Animate party poppers
+      gsap.to(popper, {
+        y: -1000,
+        rotation: Math.random() * 720 - 360,
+        duration: 10 + Math.random() * 5,
+        ease: 'power1.in',
+        repeat: -1,
+        delay: Math.random() * 5
+      });
+    }
+
+    // Animate container
+    gsap.from('.container', {
+      scale: 0,
+      rotation: 720,
+      duration: 1.5,
+      ease: 'elastic.out(1, 0.3)'
+    });
+
+    // Animate emojis
+    gsap.to('.emoji', {
+      y: -20,
+      duration: 0.5,
+      yoyo: true,
+      repeat: -1,
+      ease: 'power1.inOut',
+      stagger: 0.1
+    });
+  </script>
+</body>
+
+</html>
